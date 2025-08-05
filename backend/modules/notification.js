@@ -17,8 +17,8 @@ class Notification{
                     message: notification?.message
                 })
                 await notificationPayload.save() 
-
-                ws.emit(notificationPayload)
+                const data = JSON.parse(notification.toString())
+                ws.send(data)
             })
         })
 
